@@ -1,0 +1,66 @@
+@import '../../sass/theme.scss';
+
+.nav {
+    display:flex;
+    flex-direction: row;
+   color: white;
+  justify-content:center;
+  width: 100%;
+  height: 6rem;
+  margin-bottom: 1.5vw;
+  
+    font-size: 2.5rem;
+
+    & > * {
+        cursor: pointer;
+        color:inherit;
+       
+    }
+
+    & ul{
+        margin-top: .6rem;
+        list-style-type: none;
+      
+       
+    }
+
+    & li {
+      
+        list-style: none;
+        display: inline;
+        padding: 0rem 2rem;
+  //display: inline-block;
+  
+    width: 20rem;
+    // height: 120px;
+
+      
+    }
+    & a,& a:link, & a:visited {
+        color:white;
+        text-decoration: none;
+        transition: all .2s;
+
+        &:hover {
+            color:white;
+            transform: scaleX(3.4);
+        }
+ 
+    }
+
+    &__item{
+
+        width: 5vw;
+        height: 4vw;
+    }
+
+    &__icon {
+
+        width: 5vw;
+        height: 4vw;
+        display: inline-block;
+
+    }
+
+  
+}

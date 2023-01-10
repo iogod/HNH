@@ -1,0 +1,76 @@
+
+
+.servicecard{
+
+
+ 
+    height: 55rem;
+    width: 100%;
+    min-width: 35rem;
+    position: relative;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ margin-top: .7rem;
+ 
+border-radius: 10px;
+ box-shadow: 0 2rem 4rem rgba(#fff, .15);
+ background-color: rgba($color: #eff, $alpha: 0.25);
+ &__list{
+    padding-left: 0;
+ }
+
+&__btn{
+  display: grid;
+  justify-content: center;
+  position: relative;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    font-size: 3.2rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: rgba($color: #eff, $alpha: 0.25);
+  
+  &:hover{
+    background-color: #172A3A;
+   
+  }
+
+}
+
+
+
+}
+
+.titleBlock{
+
+    position:absolute;
+   top:0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    background-color: rgba($color: #172A3A, $alpha: 0.3);
+    //background-color: #172A3A;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 100%);
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: center;
+  
+}
+
+
+.listBlock{
+   
+    color: #efe;
+    font-size: 6rem;
+    text-align: center;
+   padding-top: 4.5rem;
+    // top:50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+}
