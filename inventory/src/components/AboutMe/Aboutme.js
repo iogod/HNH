@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import podcast from "../../img/podcast.mp3";
+// import podcast from "../../img/podcast.mp3";
 import podcastimg from "../../img/podimg.png";
 import "./aboutme.scss";
 
@@ -79,7 +79,7 @@ function Aboutme() {
                 className="aboutme__video--pod"
                 controls
                 poster={podcastimg}
-                src={podcast}
+                // src={podcast}
                 width="600"
                 height="600"
               ></video>
