@@ -1,54 +1,100 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 import "./former.scss";
-function Former() {
+import axios from "axios";
+import { getAuth } from "firebase/auth";
+
+function Former({ updateComment }) {
+  const auth = getAuth();
+
+  const [idToken, setidToken] = useState("");
+  const GetToken = async () => {
+    getAuth().onAuthStateChanged((user) => {
+      user.getIdToken().then((tok) => {
+        setidToken(tok);
+      });
+    });
+  };
+  useEffect(() => {
+    GetToken();
+  }, []);
+  const config = {
+    headers: {
+      Authorization: `Bearer ` + idToken,
+    },
+  };
+
+  const handleSubmit = async () => {
+    await axios
+      .post(
+        "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/comment",
+        {
+          commentText: textBody,
+
+          companyName: company,
+          priority: false,
+          eyedee: auth.currentUser.uid,
+        },
+        config
+      )
+      .then((doc) => {
+        const newComment = {
+          datum: {
+            commentText: doc.data.commentText,
+            userID: auth.currentUser.uid,
+            priority: doc.data.priority,
+            time: doc.data.time,
+            companyName: doc.data.companyName,
+          },
+          docID: doc.data.id,
+        };
+
+        updateComment(newComment);
+
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
+  const [company, setCompany] = useState("");
+  const [textBody, setTextBody] = useState("");
+
   return (
-    // <Form className="form">
-    //   <Form.Group className="mb-4" controlId="firstName">
-    //     <Form.Label>Enter Name</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter First Name" />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="lastName">
-    //     <Form.Label>Last Name</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter Last Name" />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="companyName">
-    //     <Form.Label>Last Name</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter Company" />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="lastName" rows="2">
-    //     <Form.Label>Comment</Form.Label>
-
-    //     <textarea
-    //       className="form-control"
-    //       id="exampleFormControlTextarea1"
-    //       rows="5"
-    //     />
-    //   </Form.Group>
-
-    //   <Button variant="primary" type="submit">
-    //     Submit
-    //   </Button>
-    // </Form>
     <div className="big">
-      <form className="form">
-        <input type="text" id="fname" name="fname" placeholder="First Name" />
-
-        <input type="text" id="lname" name="lname" placeholder="Last Name" />
-        <br />
-        <input type="text" id="cname" name="cname" placeholder="Company Name" />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (auth.currentUser !== null) {
+            handleSubmit();
+          } else {
+            alert("Please login/sign up to comment");
+          }
+        }}
+        className="form"
+      >
+        <input
+          type="text"
+          id="cname"
+          name="cname"
+          placeholder="Company Name"
+          onChange={(e) => {
+            setCompany(e.target.value);
+          }}
+          required
+        />
         <br />
         <textarea
           maxLength={"250"}
-          rows="5"
+          rows="6"
           placeholder=" Please leave a review (Max 250 characters)"
+          onChange={(e) => {
+            setTextBody(e.target.value);
+          }}
+          required
         ></textarea>
         <br />
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

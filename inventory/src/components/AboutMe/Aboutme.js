@@ -2,29 +2,49 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import podcast from "../../img/podcast.mp3";
+
 import podcastimg from "../../img/podimg.png";
 import "./aboutme.scss";
 
 const yearsArray = ["20+ Years", "10+ Years", "5+ Years", "2+ Years"].map(
-  (t) => {
-    return <span className="years">{t}</span>;
+  (t, index) => {
+    return (
+      <span key={index} className="years">
+        {t}
+      </span>
+    );
   }
 );
-const twenties = ["Auto Loan Industries", "Title Servicing Industry"].map(
-  (t) => {
-    return <span className="aboutme__twenties">{t}</span>;
-  }
-);
-const tens = ["Journalism", "Content Creation"].map((t) => {
-  return <span className="aboutme__twenties">{t}</span>;
+const twenties = ["Auto Loan Industries"].map((t, index) => {
+  return (
+    <span key={index} className="aboutme__twenties">
+      {t}
+    </span>
+  );
+});
+const tens = ["Journalism", "Content Creation"].map((t, index) => {
+  return (
+    <span key={index} className="aboutme__twenties">
+      {t}
+    </span>
+  );
 });
 
-const fives = ["Sales ", "Management", "Advertising", "Marketing"].map((t) => {
-  return <span className="aboutme__twenties">{t}</span>;
-});
-const twos = ["DEI Committee Chair"].map((t) => {
-  return <span className="aboutme__twenties">{t}</span>;
+const fives = ["Sales ", "Management", "Advertising", "Marketing"].map(
+  (t, index) => {
+    return (
+      <span key={index} className="aboutme__twenties">
+        {t}
+      </span>
+    );
+  }
+);
+const twos = ["DEI Committee Chair"].map((t, index) => {
+  return (
+    <span key={index} className="aboutme__twenties">
+      {t}
+    </span>
+  );
 });
 
 function Aboutme() {
@@ -55,12 +75,21 @@ function Aboutme() {
 
             <p className="aboutme__description">
               I started out in the auto loan industry at the age of 14. Yes,
-              14... During my 19 year career, I’ve performed vehicle title
+              14... During my 20 year career, I’ve performed vehicle title
               transactions such as lien perfections, corrections, lien releases,
               repossessions, and redemptions for some of the largest lenders in
-              the country. I’ve also managed departments that include customer
-              service, state to state transfer, duplicate title, 2nd lien, and
-              lien release requests.
+              the country.
+            </p>
+            <p className="aboutme__description">
+              I’ve also managed departments that include customer service, state
+              to state transfer, duplicate title, 2nd lien, and lien release
+              requests.
+            </p>
+
+            <p className="aboutme__description">
+              I’m currently a Lender Solutions Expert providing innovative,
+              efficient, and industry leading title solutions across the
+              lifecycle of an auto loan for banks and credit unions nationwide.
             </p>
           </Col>
 
