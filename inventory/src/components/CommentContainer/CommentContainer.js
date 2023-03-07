@@ -83,7 +83,7 @@ function CommentContainer({ updatePop }) {
     <div>
       <Row className="comment__toggle justify-content-center align-items-center">
         {formState ? <Former updateComment={AddComment} /> : null}
-        <a href="#" className="comment__btn" onClick={toggleForm}>
+        <a className="comment__btn" onClick={toggleForm}>
           <label id="comments">Leave a Testimonal/Comment</label>
         </a>
 

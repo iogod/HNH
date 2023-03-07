@@ -38,7 +38,7 @@ function ServicesCard({ title, serviceSrc }) {
     const name = fullName.split(" ");
 
     await axios
-      .post("http://127.0.0.1:5001/hnh-chuki/us-central1/resume/inquire", {
+      .post("https://us-central1-hnh-chuki.cloudfunctions.net/resume/inquire", {
         packageName: serviceSrc.title,
         firstName: name[0],
         lastName: typeof name[1] === String ? name[1] : " ",
