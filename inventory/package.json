@@ -42,8 +42,5 @@
       "last 6 firefox version",
       "last 6 safari version"
     ]
-  },
-  "devDependencies": {
-    "sass": "^1.56.2"
   }
 }
