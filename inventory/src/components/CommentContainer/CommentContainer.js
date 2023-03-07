@@ -47,7 +47,7 @@ function CommentContainer({ updatePop }) {
   const DoThat = async () => {
     const { data } = await axios
       .get(
-        "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/comments",
+        "https://us-central1-hnh-chuki.cloudfunctions.net/resume/comments",
         config
       )
       .catch((error) => {
@@ -65,7 +65,7 @@ function CommentContainer({ updatePop }) {
   const deleteComment = async (commentID) => {
     await axios
       .delete(
-        "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/comment/" +
+        "https://us-central1-hnh-chuki.cloudfunctions.net/resume/comment/" +
           commentID,
         config
       )

@@ -59,7 +59,7 @@ function Navbar({ popupState, updatePop }) {
     if (currentUser !== null) {
       await axios
         .post(
-          "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/users/",
+          "https://us-central1-hnh-chuki.cloudfunctions.net/resume/users/",
           {
             userID: pkID,
           },
@@ -125,7 +125,7 @@ function Navbar({ popupState, updatePop }) {
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         axios.post(
-          "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/signup",
+          "https://us-central1-hnh-chuki.cloudfunctions.net/resume/signup",
           { user: signUpObject, uid: auth.currentUser.uid }
         );
       })

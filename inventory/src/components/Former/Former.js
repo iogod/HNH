@@ -26,7 +26,7 @@ function Former({ updateComment }) {
   const handleSubmit = async () => {
     await axios
       .post(
-        "http://127.0.0.1:5001/hnh-chuki/us-central1/resume/comment",
+        "https://us-central1-hnh-chuki.cloudfunctions.net/resume/comment",
         {
           commentText: textBody,
 
